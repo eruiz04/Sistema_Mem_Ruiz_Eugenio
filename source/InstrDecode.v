@@ -1,8 +1,8 @@
 module InstrDecode #(
-	parameter DATA_WIDTH = 32
+	parameter MEMORY_DEPTH = 32
 )
 (
-input [(DATA_WIDTH-1):0] Addr_i,
+input [(MEMORY_DEPTH-1):0] Addr_i,
 output reg Sel
 );
 
