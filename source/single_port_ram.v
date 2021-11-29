@@ -16,12 +16,13 @@ module single_port_ram
 	// Variable to hold the registered read address
 	reg [ADDR_WIDTH-1:0] addr_reg;
 	
+	/*
 	//Initial conditions
 	initial
 	begin
 		$readmemh("C:/Users/aleja/Documents/GitHub/Sistema_Mem_Ruiz_Eugenio/source/ram.txt", ram);
 	end
-	
+	*/
 
 	always @ (posedge clk)
 	begin
