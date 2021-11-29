@@ -7,7 +7,7 @@ output reg Sel
 );
 
 always @ (Addr_i) begin 
-	if (Addr_i >= 7'h100_000) //RAM starts here
+	if (Addr_i >= 32'h100_000) //RAM starts here
 		Sel = 1;
 	
 	else 
