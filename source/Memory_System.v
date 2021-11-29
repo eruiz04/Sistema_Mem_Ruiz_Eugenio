@@ -11,11 +11,13 @@ module Memory_System
 );
 
 	//Aqui instanciare mis modulos
-	wire [(DATA_WIDTH-1):0] Qrom, Qram;
+	wire [(DATA_WIDTH-1):0] Qrom, Qram, SelMem;
 	single_port_rom #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(MEMORY_DEPTH)) ROM (.addr(Address_i), .clk(clk), .q(Qrom));
 	single_port_ram #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(MEMORY_DEPTH)) RAM (.data(Write_Data_i), .addr(Address_i), .we(Write_Enable_i),.clk(clk),.q(Qram));
+	InstrDecode #(.DATA_WIDTH(DATA_WIDTH)) InstrOrDataSel (.Addr_i(Address_i), .Sel(SelMem));
 	
-	mux2to1 Output (.D0(Qrom), .D1(Qram), .S(Write_Enable_i), .Y(Instruction_o));
+	
+	mux2to1 InstrOrData (.D0(Qrom), .D1(Qram), .S(SelMem), .Y(Instruction_o));
 	
 	
 endmodule	
