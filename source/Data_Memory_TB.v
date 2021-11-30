@@ -45,6 +45,8 @@ initial begin
 #15 data_tb = 32'hA0A0A0A0;
 #20 Address_i_tb = 5;
 #20 data_tb = 32'hABCDEF12;
+#25 Address_i_tb = 6;
+#25 data_tb = 32'h00000000;
 $finish();
 end
 
