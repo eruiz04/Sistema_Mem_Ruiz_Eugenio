@@ -12,8 +12,8 @@ module Memory_System
 
 	//Aqui instanciare mis modulos
 	wire [(DATA_WIDTH-1):0] Qrom, Qram, SelMem;
-	single_port_rom #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(MEMORY_DEPTH)) ROM (.addr(Address_i), .clk(clk), .q(Qrom));
-	single_port_ram #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(MEMORY_DEPTH)) RAM (.data(Write_Data_i), .addr(Address_i), .we(Write_Enable_i),.clk(clk),.q(Qram));
+	single_port_rom #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(MEMORY_DEPTH)) ProgramMemory (.addr(Address_i), .clk(clk), .q(Qrom));
+	single_port_ram #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(MEMORY_DEPTH)) DataMemory (.data(Write_Data_i), .addr(Address_i), .we(Write_Enable_i),.clk(clk),.q(Qram));
 	InstrDecode #(.MEMORY_DEPTH(MEMORY_DEPTH)) InstrOrDataSel (.Addr_i(Address_i), .Sel(SelMem));
 	
 	
